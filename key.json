@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "personal-finance-managem-6160d",
+  "private_key_id": "9864b11a421f189efa867e9f53c08e149aa321f5",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCYUZxzKeTS/H0a\ngeDnnUNF3PgYYAsLBzG8SUBzfj/OLvV9HsdMBENwyPFGEVtF4qJq1bPgPu+rEg6t\nF/hk066avAJwY2UE7Wvwu+Ksgt4IbbnU4wButLPGk9CH9vCxDP4TXulz3YqEnBBL\nBvtzw35/XcelKTnaEz9e0JWA4BWntu5XmeZictKixUd2+5C8w2btGPU7bpdYsQ5p\nSAb7RnxtuJcGEYYKps29mNtQak3bHGK+fUFePfaPLGxLBpeCf4BjIacv52ek8pYc\nG1kBF4S/M4gMMCSCoIkiI//wR5tQ8z+BaXcWFE1mY4JdivMcEN7X5STM8PUgTIWf\nVQK1u7vZAgMBAAECggEACHbwlM3NM5Rod2KkVvq8VFOVTfV4Z6J8txPzCvgHH7Qo\nXE2rkaPjA4+HKPep9NZFZF5/4oRc2UrlmeTtHt1MpLiyAgDkCkQPbY9jZ2bWY+2F\nGDmNOpm8K9rnCcdFVPF95SGvI4s6OWha13CJ5MMGcpmJkLobxuyu5tv8ku7hBTLl\nUE5rqjWDCXkVjGNA2qC/IE1czstKw+hXxGpJDBARLpWRgOARN2jgZ905oOwBcddZ\n9sk7YgQE9kWymPX/aCNQRe8NKoVCjdFAEBre+XCNeGqKLWxJ6GZbSgvxg69Ejuok\nhZOODrMureOMuJJwU1lIf8sQfkfRMkkMbumgEBk/AQKBgQDN+1cQow5PBGR+IR6M\nwt8VKWaQh6GVUDvrOqb1CIQpjMviRTuafyzWCSdD4ACrg+5aDG3qq3pwl3GTS6rs\nXMjBLn2yRUMKTZiLp/y/Z98/7i5l1mPuI0yztUXoaNnput/eiTUQgE76n1xKY2SJ\n1hRGZccbNgt3BonGqWa5v1Gj6QKBgQC9Tly0Pq1jfykLTjculLNqAuyoK7XXxipe\n4FI9yRGGSS8N/eDhCbZuTdhAjI4E5jyHEbZWnFAJZDZ/rntGDyuKrkqcGUkNIjm3\nIjwv2+OTDXg6iJFbBBI0JjVsm3oMP7WCcqV0WBvTMbbDSRNemqUGBi5TKPB+p987\nzOBwfEwScQKBgQCl5wdEBiCzMfWCxUgm1Zn6IGNUi3lwmrP4DUCF4TsZgCaC84JD\nOKUzKyIuABBqFJP4gURSm5S9dKzslyhuwXiMZ9ajrDeH5+GysjXXMGFWy48hROEt\n386ae6l3vGOvZm2Dfn138fAq2gnqfE1w2zVvUfBhEVGAp4p2sOBlQRwPaQKBgQCH\nemtR+4EvMbP4CVPonDcCaXFgsVeEQqfUGooA+cL27a0lQEoOA1tx+XgISg7hZrxu\nlbh+p4OIFRYDrqU+cGDi8PUoXdgv9AyGCZQ1VBK8DOm8SjxsfK9ibu3Q+jwQRA/s\neYv7hYr0TCHWBJg+HkJ32ziP/z6OBin2rBr7pZjzoQKBgCsqB0iUbe7T/58/WWLB\nEELK13LBgJra1vbfx/5vx4mn4Dbze/Rx/qkc5FlxHlVuXOhZzMtYoV6nW0CuKjRA\n/snZkdGb24ebkgFMrbsKiMpXvMb80zvUW4fl55n3CGudhQL7z9nI7A0Wd84lb+KR\n6E8OXty8Q3hVkOK4aAaRxkhW\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-sb3vf@personal-finance-managem-6160d.iam.gserviceaccount.com",
+  "client_id": "107410300072241005967",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-sb3vf%40personal-finance-managem-6160d.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
