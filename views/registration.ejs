@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,7 +39,8 @@
             color: white;
         }
 
-        input, select {
+        input,
+        select {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
@@ -75,17 +77,20 @@
         a:hover {
             text-decoration: underline;
         }
+
         .body {
-            background-image: linear-gradient(to right,rgba(0, 0, 0, 0.319),rgba(0, 0, 0, 0.358)),url("./images/1.jpeg");
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.319), rgba(0, 0, 0, 0.358)), url("./images/1.jpeg");
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
         }
+
         input {
             background-color: rgba(255, 255, 255, 0.226);
         }
     </style>
 </head>
+
 <body class="body">
     <div class="container">
         <h1 style="color: white;">Register</h1>
@@ -124,8 +129,10 @@
             <button type="submit">Register</button>
         </form>
         <p style="color: white;">Already have an account? <a href="login" style="color: yellow;">Login here</a>.<br></p>
-        <% if(typeof errorMessage !=="undefined") {%>
-            <p style="color: red;"><%= errorMessage %></p>
+        <% if(typeof errorMessage !=="undefined" ) {%>
+            <p style="color: red;">
+                <%= errorMessage %>
+            </p>
             <%}%>
     </div>
     <script>
@@ -148,4 +155,5 @@
         });
     </script>
 </body>
+
 </html>
