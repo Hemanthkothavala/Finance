@@ -96,7 +96,11 @@
         <form id="login-form" method="POST" action="/loginsubmit">
             <div class="form-group">
                 <label for="Email">Email</label>
+<<<<<<< HEAD
                 <input type="email" id="email" name="Email" required>
+=======
+                <input type="email" id="name" name="Email" required>
+>>>>>>> origin/main
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
@@ -115,6 +119,7 @@
             <% } %>
     </div>
 </body>
+<<<<<<< HEAD
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
     import { getAuth, sendPasswordResetEmail, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
@@ -183,6 +188,12 @@
     });
 
     // Optional: Prevent back navigation issue
+=======
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    });
+>>>>>>> origin/main
     window.addEventListener('pageshow', (event) => {
         if (event.persisted) {
             window.location.replace('/login');
@@ -190,7 +201,10 @@
     });
 </script>
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> origin/main
 </html>

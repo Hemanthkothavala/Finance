@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,6 +101,7 @@
         }
     </style>
 </head>
+<<<<<<< HEAD
 
 <body class="body">
     <div class="container">
@@ -121,6 +125,24 @@
     </div>
     <script>
         document.getElementById('file-upload').addEventListener('change', function (event) {
+=======
+<body class="body">
+    <div class="container">
+        <h1>User Profile</h1>
+        
+        <div class="profile-info">
+            <div><strong>Name:</strong> <span id="name"><%= username %></span></div>
+            <div><strong>Email:</strong> <span id="email"><%= email %></span></div>
+            <div><strong>Age:</strong> <span id="age"><%= age %></span></div>
+            
+            
+        </div>
+        
+        <button onclick="window.location.href='/settings'">Edit Profile</button>
+    </div>
+    <script>
+        document.getElementById('file-upload').addEventListener('change', function(event) {
+>>>>>>> origin/main
             const file = event.target.files[0];
             if (file) {
                 const imageUrl = URL.createObjectURL(file);
@@ -129,5 +151,9 @@
         });
     </script>
 </body>
+<<<<<<< HEAD
 
 </html>
+=======
+</html>
+>>>>>>> origin/main

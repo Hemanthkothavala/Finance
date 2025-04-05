@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const { initializeApp, cert } = require('firebase-admin/app');
 const { getFirestore } = require('firebase-admin/firestore');
+<<<<<<< HEAD
 const { getAuth } = require('firebase-admin/auth');
 const serviceAccount = require('./key.json');
 const session = require("express-session");
@@ -13,11 +14,27 @@ admin.initializeApp({
 });
 const db = getFirestore();
 const auth = getAuth();
+=======
+const serviceAccount = require('./key.json');
+const session = require("express-session");
+const { errors } = require("node-telegram-bot-api/src/telegram");
+
+
+initializeApp({
+  credential: cert(serviceAccount)
+});
+
+const db = getFirestore();
+>>>>>>> origin/main
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/views"));
 app.use(express.urlencoded({ extended: true }));
+<<<<<<< HEAD
 app.use(express.json());
+=======
+
+>>>>>>> origin/main
 app.use(session({
   secret: "hello",
   resave: false,
@@ -39,6 +56,7 @@ app.use((req, res, next) => {
   next();
 });
 
+<<<<<<< HEAD
 // ---------- DATA SUBMISSION & MODEL TRAINING ----------
 app.post("/datasubmit", isAuthenticated, (req, res) => {
   const userId = req.session.userdata.id;
@@ -153,11 +171,49 @@ app.post("/registersubmit", (req, res) => {
           .catch((error) => {
             console.error("Error creating user:", error);
             res.render("registration", { errorMessage: error.message });
+=======
+app.post("/registersubmit", (req, res) => {
+  db.collection("users")
+    .where("email", "==", req.body.email)
+    .get()
+    .then((docs) => {
+      if (docs.size > 0) {
+        res.render("registration",{errorMessage:"Email already in use"});
+      } else {
+        db.collection("users")
+          .where("name", "==", req.body.name)
+          .get()
+          .then((docs) => {
+            if (docs.size > 0) {
+              res.render("registration",{errorMessage:"Username already in use"});
+            } else {
+              if(req.body.password.length>=8){
+                db.collection("users")
+                .add({
+                  age: req.body.age,
+                  annualIncome: req.body.annualIncome,
+                  email: req.body.email,
+                  maritalStatus: req.body.maritalStatus,
+                  name: req.body.name,
+                  numChildren: req.body.numChildren,
+                  password: req.body.password
+                })
+                .then(() => {
+                  res.redirect("/login");
+                });
+              }
+              else{
+                res.render("registration",{errorMessage:"Password must contain atleast 8 characters"});
+              }
+              
+            }
+>>>>>>> origin/main
           });
       }
     });
 });
 
+<<<<<<< HEAD
 // 🔐 Login logic (basic, still uses Firestore password check — optional to improve)
 app.post("/loginsubmit", (req, res) => {
   const idToken = req.body.idToken;
@@ -231,8 +287,144 @@ app.get("/profile", isAuthenticated, (req, res) => {
 
 app.post("/logout", (req, res) => {
   req.session.destroy(() => res.redirect("/login"));
+=======
+app.post("/loginsubmit", (req, res) => {
+  db.collection("users")
+    .where("email", "==", req.body.Email)
+    .where("password", "==", req.body.password)
+    .get()
+    .then((docs) => {
+      if (docs.size > 0) {
+        const userdata = docs.docs[0].data();
+        const userId=docs.docs[0].id;
+        req.session.userdata = {
+          id:userId,
+          name: userdata.name,
+          annualIncome: userdata.annualIncome,
+          age: userdata.age,
+          maritalStatus: userdata.maritalStatus,
+          numChildren: userdata.numChildren,
+          email: userdata.email,
+          password:userdata.password
+        };
+        res.redirect("/home");
+      } else {
+        res.render("login", { errorMessage: "Incorrect Email or password" });
+        
+      }
+    });
+});
+
+
+
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.get("/registration", (req, res) => {
+  res.render("registration");
+});
+
+app.get("/about", isAuthenticated, (req, res) => {
+  res.render("about");
+});
+
+app.get("/home", isAuthenticated, (req, res) => {
+  const { name, annualIncome } = req.session.userdata;
+  res.render("home", { name1: name, annualIncome });
+});
+
+app.get("/contact", isAuthenticated, (req, res) => {
+  res.render("contact");
+});
+app.get("/tax",isAuthenticated,(req,res)=>{
+  res.render("tax");
+});
+app.get("/finance",isAuthenticated,(req,res)=>{
+  res.render("finance");
+});
+app.get("/trading",(req,res)=>{
+  res.render("trading");
+});
+
+app.get("/settings", isAuthenticated, (req, res) => {
+  res.render("settings");
+});
+
+app.post("/updateUserInfo", isAuthenticated, (req, res) => {
+  const { name, email, age} = req.body;
+  const userId=req.session.userdata.id;
+  db.collection("users").where("email","==",req.session.userdata.email).get()
+  .then((docs)=>{
+    if(docs.size>0 && docs.docs[0]==userId){
+      res.render("settings", {errorMessage:"Email already exist"});
+    }
+    else{
+      db.collection("users")
+    .doc(userId)
+    .update({
+      name: name,
+      email: email,
+      age: parseInt(age),
+    })
+    .then(() => {
+      req.session.userdata = { ...req.session.userdata, name, email, age, };
+
+      res.redirect("/profile");
+    })
+    
+    .catch((error) => {
+      console.error("Error updating user information: ", error);
+      res.status(500).send("Error updating user information.");
+    });
+    }
+  })
+});
+app.post("/changePassword", isAuthenticated, (req, res) => {
+  const { currentPassword, newPassword, confirmPassword } = req.body;
+  const userId = req.session.userdata.id;
+  
+  if (currentPassword === req.session.userdata.password) {
+    if (newPassword === confirmPassword) {
+      db.collection('users').doc(userId).update({ password: newPassword })
+        .then(() => {
+          req.session.userdata.password = newPassword;
+          res.redirect("/profile");
+        })
+        
+    } 
+  } 
+});
+
+
+
+app.get("/profile", isAuthenticated, (req, res) => {
+  const { name, annualIncome, age, maritalStatus, numChildren, email } = req.session.userdata;
+  res.render("profile", {
+    username: name,
+    annualIncome,
+    age,
+    maritalStatus,
+    numChildren,
+    email
+  });
+});
+
+app.post("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      res.redirect("/home");
+    } else {
+      res.redirect("/login");
+    }
+  });
+>>>>>>> origin/main
 });
 
 app.listen(4000, () => {
   console.log("Server is running on port 4000");
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> origin/main
